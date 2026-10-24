@@ -1,0 +1,1467 @@
+﻿<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<meta name="description" content="Daryl Tautjo is an aspiring web developer and UI/UX enthusiast building responsive, user-centered web experiences.">
+<meta name="theme-color" content="#131315">
+<title>Daryl Tautjo | Web Developer &amp; UI/UX Enthusiast</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-y: auto !important;
+    scroll-behavior: smooth;
+  }
+  html {
+    scroll-padding-top: 5rem;
+  }
+  body {
+    max-width: 100%;
+  }
+  main.pt-16 {
+    padding-top: calc(4rem + env(safe-area-inset-top));
+  }
+  img {
+    max-width: 100%;
+  }
+  :focus-visible {
+    outline: 2px solid #ffb4ab;
+    outline-offset: 3px;
+  }
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+  @media (max-width: 1023px) {
+    #hero-portrait-card {
+      width: min(72vw, 20rem);
+      height: min(72vw, 20rem);
+    }
+    #hero-portrait-card > .relative {
+      width: min(64vw, 18rem);
+      height: min(64vw, 18rem);
+    }
+    h1.text-headline-xl {
+      font-size: clamp(2.25rem, 8vw, 3.5rem);
+      line-height: 1.05;
+    }
+    h2.text-headline-lg {
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+      line-height: 1.2;
+    }
+  }
+  @media (max-width: 639px) {
+    #hero-portrait-card {
+      width: min(68vw, 17rem);
+      height: min(68vw, 17rem);
+    }
+    #hero-portrait-card > .relative {
+      width: min(60vw, 15rem);
+      height: min(60vw, 15rem);
+    }
+    #skill-filters {
+      max-width: 100%;
+    }
+    #contact-form,
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+      min-width: 0;
+    }
+    #project-modal > div,
+    #live-demo-modal > div,
+    #skill-modal > div,
+    #insight-modal > div {
+      max-height: calc(100vh - 2rem);
+      max-height: calc(100dvh - 2rem);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.scroll-smooth {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #131315;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2c;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4d4635;
+  }
+</style>
+<link href="./styles.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex flex-col selection:bg-error selection:text-surface-container-lowest">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-surface-container-high/50 shadow-[0_1px_8px_rgba(0,0,0,0.4)]">
+<div class="h-16 w-full max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-space-md">
+<a class="flex items-center gap-space-xs font-headline-sm text-headline-sm tracking-tight text-on-surface" data-path="home" href="#home" onclick="handleNavScroll(event, 'home')">
+<span class="font-medium">Daryl</span><span class="font-bold text-error drop-shadow-[0_0_12px_rgba(255,42,75,0.45)]">Tautjo</span>
+</a>
+<nav class="hidden lg:flex items-center gap-space-sm p-space-xs bg-surface-container-lowest/50 rounded-xl" id="desktop-nav">
+<a aria-current="page" class="nav-link px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-target="home" href="#home" onclick="handleNavScroll(event, 'home')">Home</a>
+<a class="nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-target="about" href="#about" onclick="handleNavScroll(event, 'about')">About Me</a>
+<a class="nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-target="projects" href="#projects" onclick="handleNavScroll(event, 'projects')">Projects</a>
+<a class="nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-target="experience" href="#experience" onclick="handleNavScroll(event, 'experience')">Experience</a>
+<a class="nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-target="skills" href="#skills" onclick="handleNavScroll(event, 'skills')">Skills</a>
+<a class="nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-target="contact" href="#contact" onclick="handleNavScroll(event, 'contact')">Contacts</a>
+</nav>
+<div class="flex items-center gap-space-sm">
+<div aria-label="Open Daryl's profile" class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-error transition-all" onclick="openProfileModal()" role="button" tabindex="0" title="Profile Active">
+<span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+</div>
+<button aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false" class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors" id="btn-mobile-menu" type="button">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+</div>
+</div>
+<!-- Mobile Navigation Drawer -->
+<div class="lg:hidden hidden px-gutter-mobile py-4 bg-surface-container-lowest/95 backdrop-blur-2xl border-b border-surface-container-high" id="mobile-drawer">
+<nav class="flex flex-col gap-2">
+<a aria-current="page" class="px-4 py-2.5 rounded-lg text-on-surface font-semibold bg-surface-container-low hover:bg-error/20 hover:text-error transition-all mobile-nav-item" href="#home" onclick="handleNavScroll(event, 'home')">Home</a>
+<a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item" href="#about" onclick="handleNavScroll(event, 'about')">About Me</a>
+<a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item" href="#projects" onclick="handleNavScroll(event, 'projects')">Projects</a>
+<a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item" href="#experience" onclick="handleNavScroll(event, 'experience')">Experience</a>
+<a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item" href="#skills" onclick="handleNavScroll(event, 'skills')">Skills</a>
+<a class="px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item" href="#contact" onclick="handleNavScroll(event, 'contact')">Contacts</a>
+</nav>
+</div>
+</header>
+<main class="w-full pt-16 flex-1 bg-background">
+<div class="flex flex-col w-full text-on-surface select-none relative">
+<!-- =========================================================================
+       HERO SECTION: Replicating reference layout, red typewriter, & glowing ring
+       ========================================================================= -->
+<section class="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-gutter-mobile lg:px-margin py-space-xl overflow-hidden bg-surface-container-lowest" id="home">
+<!-- Interactive Three.js 3D Scene Container -->
+<div class="absolute inset-0 w-full h-full pointer-events-none -z-0" id="hero-threejs-canvas"><canvas width="1280" height="960" style="display: block; position: absolute; top: 0px; left: 0px; width: 1280px; height: 960px; pointer-events: none;"></canvas></div>
+<!-- Crimson Atmosphere Radial Glows -->
+<div class="absolute -top-32 left-1/4 w-96 h-96 rounded-full bg-error-container/20 blur-[130px] pointer-events-none"></div>
+<div class="absolute -bottom-24 right-1/4 w-[28rem] h-[28rem] rounded-full bg-error/10 blur-[150px] pointer-events-none"></div>
+<div class="w-full max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<!-- Left Column: Copy, Typewriter, Bio, Social, CTA -->
+<div class="lg:col-span-7 flex flex-col gap-space-md order-2 lg:order-1 text-left">
+<div class="inline-flex items-center gap-space-xs self-start px-space-md py-1 rounded-full bg-surface-container-high/60 backdrop-blur-sm cursor-pointer hover:bg-surface-container-high transition-all" onclick="showToast('Status: Available for contracts and collaborative builds!')" role="button" tabindex="0" aria-label="Show availability details">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error">Available for freelance &amp; contracts</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<p class="font-headline-md text-headline-md font-medium text-on-surface">
+            Hey, I'm <font color="#ffb4ab"><b>Daryl Tautjo</b></font></p>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-none">
+            I'm a <span class="text-error font-extrabold tracking-tight drop-shadow-[0_0_24px_rgba(255,42,75,0.7)]" id="typewriter-text"></span><span class="inline-block w-1 h-10 ml-1 bg-error animate-pulse align-middle"></span>
+</h1>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">Aspiring Web Developer and UI/UX Design Enthusiast passionate about creating responsive, visually appealing, and user-friendly websites. Interested in developing practical digital solutions, particularly management systems, reservation platforms, and web-based applications. Familiar with HTML, CSS, JavaScript, and modern web development tools, while leveraging AI-assisted tools to support coding, design exploration, problem-solving, and development. Committed to continuous learning, improving technical skills, and turning ideas into functional, user-centered digital experiences.</p>
+<!-- Social Glow Icons matching the reference image red circular buttons -->
+<div class="flex items-center gap-space-md pt-space-xs">
+<a aria-label="Explore featured projects" class="w-12 h-12 rounded-full bg-surface-container-high/80 hover:bg-error/20 flex items-center justify-center text-error hover:text-on-surface transition-all shadow-[0_0_18px_rgba(255,42,75,0.35)] group" href="#projects" onclick="handleNavScroll(event, 'projects')" title="View featured projects">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">code</span>
+</a>
+<a aria-label="Daryl's GitHub profile" class="w-12 h-12 rounded-full bg-surface-container-high/80 hover:bg-error/20 flex items-center justify-center text-error hover:text-on-surface transition-all shadow-[0_0_18px_rgba(255,42,75,0.35)] group" href="https://github.com/DarylTautjo" rel="noopener noreferrer" target="_blank" title="Visit GitHub profile">
+<svg aria-hidden="true" class="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
+</a>
+<button aria-label="Copy Email address" class="w-12 h-12 rounded-full bg-surface-container-high/80 hover:bg-error/20 flex items-center justify-center text-error hover:text-on-surface transition-all shadow-[0_0_18px_rgba(255,42,75,0.35)] group cursor-pointer" onclick="copyEmailToClipboard()" title="Copy Email" type="button">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">mail</span>
+</button>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-sm">
+<a class="px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold bg-gradient-to-r from-error to-error-container text-on-error shadow-[0_0_24px_rgba(255,42,75,0.45)] hover:shadow-[0_0_32px_rgba(255,42,75,0.7)] hover:scale-105 transition-all flex items-center gap-2" href="#projects" onclick="handleNavScroll(event, 'projects')">
+<span class="">Explore Projects</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<button class="px-6 py-3.5 rounded-xl font-label-md text-label-md font-semibold bg-surface-container-high hover:bg-surface-bright text-on-surface transition-all flex items-center gap-2 cursor-pointer" onclick="scrollToContactAndFocus()" type="button">
+<span class="">Get in Touch</span>
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Hero Portrait with Multi-layer Crimson Radial Glow Aura -->
+<div class="lg:col-span-5 flex items-center justify-center order-1 lg:order-2">
+<div aria-label="Open Daryl's profile" class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center group cursor-pointer" id="hero-portrait-card" onclick="openProfileModal()" role="button" style="transform: perspective(800px) rotateY(0deg) rotateX(0deg);" tabindex="0" title="Click to view bio">
+<!-- Outer Pulsing Glow Aura -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-br from-error/40 via-error-container/20 to-transparent blur-3xl animate-pulse"></div>
+<!-- Mid Glow Layer -->
+<div class="absolute -inset-2 rounded-full bg-gradient-to-tr from-error/30 to-error-container/5 blur-xl"></div>
+<!-- The Glowing Circle Frame -->
+<div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-84 md:h-84 rounded-full p-2 bg-gradient-to-b from-error via-error-container to-transparent shadow-[0_0_50px_rgba(255,42,75,0.45)] transition-transform duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-lowest">
+<img alt="Developer portrait representing Daryl Tautjo" class="w-full h-full object-cover object-top filter contrast-105" fetchpriority="high" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD55LfulV5ZGHmHtgXiJQEO1lGHbmc6pmyiOwvSSvP2yt9ONKRUHZ141xtA4eBOqozGHryq-RlHD9SxxYvn4fZ8wKEFN5uJe8TR8P9raHaU92sEy0iEZzT0eGrVCiUosjZt6Xy5PRWgVWGOwYUDyhn0WDIxgVVzRhUzP9v53tMi9OR5qHBlCx_q7OrV1svHAUR6JRcpIYzH7ik69gU1NQAcIOjk6yPFtueBvUzkB7Fv_yO_Kk18_khZFE2heNeDJl_Er2GUprWhkMRCLsA">
+</div>
+</div>
+<!-- Subtle Tech HUD Accent Ring -->
+<div class="absolute -inset-4 rounded-full border border-dashed border-error/20 pointer-events-none animate-spin" style="animation-duration: 40s;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       ABOUT ME & PHILOSOPHY SECTION
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface scroll-mt-20" id="about">
+<div class="max-w-[1240px] mx-auto flex flex-col gap-space-xl">
+<!-- Section Label Header -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Background &amp; Philosophy</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Building digital experiences with purpose</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Story Block -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">About Me</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">I am an aspiring Web Developer and UI/UX Design Enthusiast passionate about creating responsive, visually appealing, and user-friendly websites. I enjoy turning ideas into practical digital solutions, especially management systems and reservation platforms, that make everyday processes easier and more efficient.</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">I work with HTML, CSS, JavaScript, and modern web development tools, while using AI-assisted tools to support coding, design exploration, problem-solving, and development. I am committed to continuous learning, improving my technical skills, and creating meaningful, user-centered digital experiences.</p>
+<div class="grid grid-cols-3 gap-space-md pt-space-xs text-center">
+<div class="p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group" onclick="openStatModal('2+ Years in UI/UX Exploration', 'Deep immersion in user journeys, visual balance, component hierarchies, wireframing in Figma, and crafting accessible, responsive digital touchpoints.')" role="button" tabindex="0">
+<span class="block font-headline-md text-headline-md font-bold text-error group-hover:scale-105 transition-transform">2+</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Years UI/UX</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group" onclick="openStatModal('Production &amp; Academic Systems', 'Includes the comprehensive School Athlete Monitoring System and the ToothSaver Dental Clinic Management Suite, both designed from scratch.')" role="button" tabindex="0">
+<span class="block font-headline-md text-headline-md font-bold text-primary group-hover:scale-105 transition-transform">1+</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Projects Built</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer group" onclick="openStatModal('100% Commitment to Craft', 'Punctuality, modern semantic standards, rapid learning cycles with AI augmentation, and uncompromising care for user experience.')" role="button" tabindex="0">
+<span class="block font-headline-md text-headline-md font-bold text-secondary group-hover:scale-105 transition-transform">100%</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dedication</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Timeline & Milestones (Experience) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Milestones</h3>
+<span class="font-label-sm text-label-sm text-error">Current Journey</span>
+</div>
+<!-- Timeline Step 1 -->
+<div class="flex gap-space-md cursor-pointer group hover:bg-surface-container/50 p-2 rounded-lg transition-colors" onclick="openMilestoneModal('Aspiring Web Developer &amp; Designer (2025)', 'Exploring and building my skills in web development, UI/UX design, and creating user-friendly digital solutions with the help of modern AI toolchains, component frameworks, and responsive codebases.')" role="button" tabindex="0">
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 rounded-full bg-error group-hover:scale-125 transition-transform"></span>
+<span class="w-0.5 h-full bg-surface-container-highest"></span>
+</div>
+<div class="pb-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">2025</span>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface group-hover:text-error transition-colors">Aspiring Web Developer &amp; Designer</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Exploring and building my skills in web development, UI/UX design, and creating user-friendly digital solutions with the help of AI tools.</p>
+</div>
+</div>
+<!-- Timeline Step 2 -->
+<div class="flex gap-space-md cursor-pointer group hover:bg-surface-container/50 p-2 rounded-lg transition-colors" onclick="openMilestoneModal('Management Systems &amp; Reservation Platforms', 'Focused on architecting real-world database applications, appointment scheduling engines, clinic portals, and athletic management tools that solve tangible operational challenges.')" role="button" tabindex="0">
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 rounded-full bg-primary group-hover:scale-125 transition-transform"></span>
+<span class="w-0.5 h-full bg-surface-container-highest"></span>
+</div>
+<div class="pb-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Current Focus</span>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface group-hover:text-primary transition-colors">Management Systems &amp; Reservation Platforms</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Developing practical web applications that help organize processes, improve accessibility, and create better user experiences.</p>
+</div>
+</div>
+<!-- Timeline Step 3 -->
+<div class="flex gap-space-md cursor-pointer group hover:bg-surface-container/50 p-2 rounded-lg transition-colors" onclick="openMilestoneModal('Continuous Learning &amp; AI Integration', 'Staying on the cutting-edge of full-stack ecosystems, generative coding, rapid prototyping, design tokens, and human-computer interaction standards.')" role="button" tabindex="0">
+<div class="flex flex-col items-center">
+<span class="w-3 h-3 rounded-full bg-secondary group-hover:scale-125 transition-transform"></span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ongoing</span>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface group-hover:text-secondary transition-colors">Continuous Learning</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Expanding my knowledge of modern web technologies, UI/UX design, and AI tools to build more functional, creative, and impactful digital solutions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       EXPERIENCE SECTION (ANCHORED CONTAINER)
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface-container-low/30 scroll-mt-20 border-y border-surface-container-high/40" id="experience">
+<div class="max-w-[1240px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Experience &amp; Career Track</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Practical Experience &amp; Path</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+        Focused on pragmatic development workflows, hands-on client prototyping, and architecting database-driven applications.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md pt-2">
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-surface-container-high/50 flex flex-col gap-space-sm hover:border-error/50 transition-all cursor-pointer group" onclick="openMilestoneModal('Freelance &amp; Academic Web Projects', 'Led full development cycles including UI/UX wireframing, frontend engineering with modern HTML5/CSS3/JavaScript, backend endpoints, and client feedback integration.')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded bg-error/10 text-error font-label-sm text-label-sm font-semibold">2024 - Present</span>
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:scale-110 transition-transform">code</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-error transition-colors">Web Development &amp; Systems</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Building end-to-end management portals, clinic reservations, and custom dashboard interfaces tailored to client needs.</p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-surface-container-high/50 flex flex-col gap-space-sm hover:border-primary/50 transition-all cursor-pointer group" onclick="openMilestoneModal('UI/UX System Design &amp; Prototyping', 'Created robust component design systems in Figma with auto-layout, synchronized color hierarchies, and interaction flows designed for rapid conversion into frontend code.')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">Design Discipline</span>
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:scale-110 transition-transform">draw</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">UI/UX Prototyping Lead</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Architecting user journeys, wireframes, and design token libraries with a human-centered approach to usability.</p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-surface-container-high/50 flex flex-col gap-space-sm hover:border-secondary/50 transition-all cursor-pointer group" onclick="openMilestoneModal('AI-Assisted Engineering Workflow', 'Leveraging modern LLM toolchains to augment code quality, refine architectural patterns, perform automated refactoring, and accelerate delivery speeds.')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Continuous Evolution</span>
+<span class="material-symbols-outlined text-secondary text-[20px] group-hover:scale-110 transition-transform">neurology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-secondary transition-colors">AI Augmented Development</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Integrating intelligent tooling into full-stack iteration cycles to deliver production-grade code rapidly and accurately.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SKILLS & TECH STACK ARSENAL SECTION
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface-container-lowest scroll-mt-20" id="skills">
+<div class="max-w-[1240px] mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Technical Arsenal</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Technologies &amp; Competencies</h2>
+</div>
+<!-- Filter Tabs: All, Frontend, Tools & DB -->
+<div class="flex items-center gap-2 p-1 rounded-xl bg-surface-container-high overflow-x-auto" id="skill-filters">
+<button aria-pressed="true" class="px-4 py-2 rounded-lg font-label-sm text-label-sm transition-all skill-filter-btn bg-surface-container-highest text-on-surface" data-cat="all" type="button">All</button>
+<button aria-pressed="false" class="px-4 py-2 rounded-lg font-label-sm text-label-sm hover:text-on-surface transition-all skill-filter-btn text-on-surface-variant" data-cat="frontend" type="button">Frontend</button>
+<button aria-pressed="false" class="px-4 py-2 rounded-lg font-label-sm text-label-sm hover:text-on-surface transition-all skill-filter-btn text-on-surface-variant" data-cat="tools" type="button">Tools &amp; DB</button>
+</div>
+</div>
+<!-- Skills Grid with Interactive Detail Modal Trigger -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-space-md" id="skills-grid">
+<!-- Skill 1: JavaScript -->
+<div class="skill-card p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group flex flex-col gap-space-sm" data-category="frontend" onclick="openSkillModal('JavaScript (ES6+)', 'Frontend Core', '3 Years', 'Deep familiarity with asynchronous programming (Promises, async/await), DOM operations, modern closures, modular architecture, and functional workflows.', '92%', 'Athlete Monitoring System, ToothSaver')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">javascript</span>
+</div>
+<span class="font-label-sm text-label-sm text-error">92%</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">JavaScript</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">ES6+, Async, DOM Manipulation</p>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-error h-full rounded-full w-[92%]"></div>
+</div>
+</div>
+<!-- Skill 2: HTML -->
+<div class="skill-card p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group flex flex-col gap-space-sm" data-category="frontend" onclick="openSkillModal('HTML5 &amp; Semantic Markup', 'Frontend Markup', '3+ Years', 'Pixel-perfect, accessible semantic HTML5 layouts with ARIA screen reader attributes, responsive meta elements, and SEO structured formats.', '95%', 'All Portfolio Projects, Clinic Web Portals')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">html</span>
+</div>
+<span class="font-label-sm text-label-sm text-error">95%</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">HTML</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Accessibility &amp; Structure</p>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-error h-full rounded-full w-[95%]"></div>
+</div>
+</div>
+<!-- Skill 3: Tailwind CSS -->
+<div class="skill-card p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group flex flex-col gap-space-sm" data-category="frontend" onclick="openSkillModal('CSS3 &amp; Tailwind CSS', 'Styling &amp; Systems', '3 Years', 'Expertise in modern CSS grid, flexbox, utility classes, dynamic CSS variables, smooth hardware-accelerated animations, and responsive breakpoints.', '94%', 'Executive Portfolios, ToothSaver UI, Design Systems')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">css</span>
+</div>
+<span class="font-label-sm text-label-sm text-error">94%</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Tailwind CSS</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Responsive &amp; Design Tokens</p>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-error h-full rounded-full w-[94%]"></div>
+</div>
+</div>
+<!-- Skill 4: Figma & UI Design (Tools & DB) -->
+<div class="skill-card p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group flex flex-col gap-space-sm" data-category="tools" onclick="openSkillModal('Figma UI/UX', 'Prototyping Software', '2 Years', 'Building interactive component design systems, autolayout wireframes, micro-interaction mockups, and client handoffs.', '88%', 'Comprehensive Design Kits, Mobile App Wireframes')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">draw</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">88%</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Figma &amp; UI Design</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-Fidelity Prototypes</p>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full w-[88%]"></div>
+</div>
+</div>
+<!-- Skill 5: Git & GitHub (Tools & DB) -->
+<div class="skill-card p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer group flex flex-col gap-space-sm" data-category="tools" onclick="openSkillModal('Git &amp; Version Control', 'DevOps &amp; Versioning', '2+ Years', 'Branch management strategies, merge conflict resolution, pull request reviews, and GitHub Actions CI/CD workflows.', '86%', 'Open Source Contributions, Team Repositories')" role="button" tabindex="0">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[24px]">fork_right</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary">86%</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Git &amp; GitHub</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Version Tracking &amp; CI/CD</p>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full w-[86%]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       FEATURED PROJECTS SHOWCASE SECTION
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface scroll-mt-20" id="projects">
+<div class="max-w-[1240px] mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Featured Case Studies</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Engineered Web Solutions</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Real-world applications delivered with responsive frontend architecture, database modeling, and intuitive customer reservation flows.
+        </p>
+</div>
+<!-- Project Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Project 1: School Athlete Monitoring System -->
+<article class="rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+<div class="relative w-full h-52 bg-surface-container-highest overflow-hidden">
+<img alt="A clean, modern athletic tracking and sports performance dashboard software interface on a modern workstation monitor. Sleek dark UI with vibrant athletic metrics, heart-rate graphs, training schedule, runner analytics, dark theme with crimson red accents and crisp glowing data visualizations." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsay29ilSop0eF4TNmIZNiDrjjdCFpIQx9HBIXnbAltqmUGbffU9GPuikfThcdM7HGhhWifqcz3TtQ77KgdBlMSubueEtGtPUISRpxr2U8_OGvXgFi-BVh4eIoFo4t797bOVAI1EcKN4s_zDbYzaByZXa72Dom48sCFXxzbTNddowd_ge3j_s-b7eZeKMrihUqnr9GF2VXgXiXT4tJniV9Da4d-vqilzu9OrfeWllcGUE9fSVW53g1PiTFtfxIVPFZ9iamM2LUn7dzxJw">
+<div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-error">Full Stack</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">React</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Node.js</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">MySQL</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-error transition-colors">
+                School Athlete Monitoring System</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">A centralized software platform used by educational institutions, athletic directors, and coaches to track, manage, and analyze student-athletes' performance, health, and well-being.</p>
+</div>
+<div class="flex items-center gap-space-sm pt-2">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container-high hover:bg-error hover:text-on-error font-label-sm text-label-sm font-semibold text-on-surface transition-all text-center cursor-pointer" onclick="openProjectModal('School Athlete Monitoring System', 'Full Stack Athlete Analytics', 'React, Node.js, Express, MySQL', 'A centralized athletic management and performance analytics portal engineered for educational sports programs.', 'High variance in training loads across sports disciplines without unified telemetry.', 'Engineered modular REST APIs with normalized relational athlete tables, real-time workload heatmaps, biometrics tracking, injury avoidance logs, and coach notes.', '')" type="button">
+                Case Study
+              </button>
+<button aria-label="Open project preview" class="px-3.5 py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface transition-all flex items-center justify-center cursor-pointer" onclick="openLiveDemoModal('School Athlete Monitoring System', 'Athlete Peak Dashboard Prototype', 'https://lh3.googleusercontent.com/aida/AEtjO1WSUKVxNXNHrB7Krlpjtlhobo5evkf_1csvpxvqwnSmLBXSQBY-r5HMMlvBxx7YEg-DrD20UGmjvBqT5hS66uBHLYZAyEnQjaqP9_CqwuBf2RJ2Jo4cFZQCeAs42Ksj-Cw64ygh9Zl1Otcnrpcz3ZvlrZZrW5nWQ5Vzs5fJtohLHSeHJwNktmSp2zSKgSMfFC6PUGxiHBZav90joXyKMJcrz6RDiE3HHfZk_MNaIQa6JPSl06r2nxh2tXY')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Project 2: ToothSaver (Storefront / Clinic) -->
+<article class="rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+<div class="relative w-full h-52 bg-surface-container-highest overflow-hidden">
+<img alt="A high-end modern dental clinic management system and appointment booking web application dashboard displayed on a sleek laptop and tablet mockup, showing dental tooth chart, patient appointment calendar, clean dental practice interface, dark theme with elegant amber and red subtle glow accents." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPSpPZ0IP1IPjN9P6VZLDkHpiFZvQrTOF7PHgrabII3Ptm5PnZ1kh3TMOjMMyLnURbh7UEx89h3t6P9AmRBFfypimV7XEuYFQuU5pXB1d-htlodojGq8PTD4SkTbtpf1awWJ4waOElZGbAq4PgLvgOtzbYYq3T34rlUiDTIKITY2g_EvuT43N0lxnYNp8ME1Sfdapu5d44A_AvUJCqVJjKhXOBWMYs1V9DwEkTCz8n8vdY84VPyY6r9e5qXvP7fUfGdDZvvaWE3VtDdQ">
+<div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-primary">Storefront / Clinic</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">JavaScript</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Tailwind</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Express</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-error transition-colors">
+                ToothSaver</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">A web-based Dental clinic management system designed to organize patient records, tooth charts, and streamline automated appointment scheduling.</p>
+</div>
+<div class="flex items-center gap-space-sm pt-2">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container-high hover:bg-error hover:text-on-error font-label-sm text-label-sm font-semibold text-on-surface transition-all text-center cursor-pointer" onclick="openProjectModal('ToothSaver Dental Clinic System', 'Clinical Practice Management', 'JavaScript ES6+, Tailwind CSS, Node Express, SQLite', 'ToothSaver streamlines private dental clinics by replacing legacy paper workflows with intelligent appointment booking and chart tracking.', 'Double-booking appointments and lost paper records that caused operational delays.', 'Created an interactive visual tooth chart, auto-synced calendar availability, and patient history ledger with SMS reminder triggers.', '')" type="button">
+                Case Study
+              </button>
+<button aria-label="Open project preview" class="px-3.5 py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface transition-all flex items-center justify-center cursor-pointer" onclick="openLiveDemoModal('ToothSaver Dental Suite', 'Live Clinic Sandbox', 'https://lh3.googleusercontent.com/aida/AEtjO1USxxJeRb2JzXDS10v8sEpArz3ZpKGYC4o8avO7cEAq3C9ewSbM6zy8sl9ej8ihiJ28Qhdxco6hNruAqImLBACE1vnz5NwIqmihfPTyTUc9eH11j317G8aG9rzX5boo1E6fIKvZSSxLraKyQAPbaijm0q34JMxsbwvDcZ06xB0KeUaTGu-OdaTT6Tr5adNME36OPyxcnLKJlK8dc9D7j8Fsou6pMXb9bUxxS15mtRtMXH8kLgCyfAK10hwz')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Project 3: UI/UX Designer & Prototyping System -->
+<article class="rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col overflow-hidden group shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+<div class="relative w-full h-52 bg-surface-container-highest overflow-hidden">
+<img alt="A sophisticated UI/UX design workspace showing Figma web and mobile interface mockups, wireframes, design token styleguide, and interactive prototypes on dual curved monitors, high fidelity aesthetic, dark obsidian workstation environment with ambient crimson studio lighting." class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBPIYMZECeJljZlAo9Z3_KcGos3fgJKYLmkOXp0l0MPQnmo-89ut2upyDkgM5VqoCePR_xHGpR7Zmo0j1fBpQnUVKAQlQBA7MpzcbrTqA_4-7hJ3eMxRLV2TxrTqm03Z9RMvVyNl46AtCBSpc7DhbR9ozvPEQ4nzryZsLIcQzzIAYg2QZXSkQEDKV2EM69iR_8le3-qahXpS_QF0VogTVZt37jU2EH6G-TzzUkoci06p6JOT-fFa_5rXIGkdVgG5x04BMBFIkRiJ8q4pI">
+<div class="absolute top-3 right-3 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="font-label-sm text-label-sm text-secondary">Design System</span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Figma</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Design Tokens</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">UI/UX</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-error transition-colors">Figma UI/UX Design System &amp; Prototyping</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">Comprehensive design systems, component libraries, and interactive prototyping focused on turning complex workflows into intuitive, engaging digital interactions.</p>
+</div>
+<div class="flex items-center gap-space-sm pt-2">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container-high hover:bg-error hover:text-on-error font-label-sm text-label-sm font-semibold text-on-surface transition-all text-center cursor-pointer" onclick="openProjectModal('Figma UI/UX Design System &amp; Prototyping', 'Design Operations &amp; Guidelines', 'Figma, Auto Layout, Tokens Studio, Tailwind Specs', 'A unified multi-brand design architecture containing over 200+ reusable autolayout components and WCAG AAA accessible palettes.', 'Inconsistent spacing and misaligned design tokens between Figma and production code.', 'Standardized typography, strict layout grids, and exported token maps that seamlessly bind into Tailwind CSS themes.', '')" type="button">
+                Case Study
+              </button>
+<button aria-label="Open project preview" class="px-3.5 py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface transition-all flex items-center justify-center cursor-pointer" onclick="openLiveDemoModal('Figma UI/UX Design System', 'Interactive Prototype Sandbox', 'https://lh3.googleusercontent.com/aida/AEtjO1VEdFxo7P5Mbitcf3AqRJUHEMw5GuICelwpLQobBFGfgOX6WBiMTTJgAoI55lR_pdsaqfFp6bOlJsVHcN77GOy8enMHIr2wSHJ_pTr23uCQyX3I5cRUZ3cx-3SJMscKzq9_nqXFYDwzHA1dYw1XLuDBqnv78zXtVbMChIL_SdvkkIxXhYojEftoqtDdC2tHkETWA48h1CNGf7QHMwU8BE64NpsbPB-Q2UCRT-krfUsRZU7vTKL6JNsNcGZs')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SERVICES & CAPABILITIES SECTION
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface-container-lowest">
+<div class="max-w-[1240px] mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Capabilities</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">What I Deliver</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-sm group justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-error group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">web</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Custom Web Apps</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bespoke React and JavaScript web applications tuned for smooth responsiveness and zero bloat.</p>
+</div>
+<button class="mt-3 text-left font-label-sm text-label-sm text-error hover:underline flex items-center gap-1 cursor-pointer" onclick="inquireService('web-app')" type="button">
+<span class="">Inquire for this</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-sm group justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">devices</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">UI/UX Prototyping</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-fidelity wireframes in Figma transformed into accessible, pixel-accurate HTML/CSS implementations.</p>
+</div>
+<button class="mt-3 text-left font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1 cursor-pointer" onclick="inquireService('consulting')" type="button">
+<span class="">Inquire for this</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-space-sm group justify-between">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-error group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">speed</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Speed Optimization</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Asset compression, Core Web Vitals refinement, SEO indexing markup, and rapid loading benchmarks.</p>
+</div>
+<button class="mt-3 text-left font-label-sm text-label-sm text-error hover:underline flex items-center gap-1 cursor-pointer" onclick="inquireService('optimization')" type="button">
+<span class="">Inquire for this</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       CONTACT & INQUIRY SECTION
+       ========================================================================= -->
+<section class="w-full py-space-xl px-gutter-mobile lg:px-margin bg-surface relative scroll-mt-20" id="contact">
+<!-- Red ambient background glow -->
+<div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-error/5 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start relative z-10">
+<!-- Contact Details & Quick Copy -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="w-8 h-[2px] bg-error"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-error">Let's Connect</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Have a project in mind? Let's build together.</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Whether you need a full website built from scratch, a specialized booking system, or a UI developer for your team, my inbox is always open.
+        </p>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Direct Copy Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[22px]">mail</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DIRECT EMAIL</span>
+<a class="font-body-md text-body-md font-semibold text-on-surface hover:text-error focus-visible:underline" href="mailto:daryltautjo@gmail.com">daryltautjo@gmail.com</a>
+</div>
+</div>
+<button aria-label="Copy Email address" class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-error hover:text-on-error font-label-sm text-label-sm text-on-surface transition-all cursor-pointer" onclick="copyEmailToClipboard()" type="button">
+              Copy
+            </button>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[22px]">location_on</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">LOCATION</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Lower Sanroque Bulacao C.C</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Contact Form -->
+<div class="lg:col-span-7">
+<form class="p-space-lg rounded-2xl bg-surface-container-low shadow-[0_12px_40px_rgba(0,0,0,0.6)] flex flex-col gap-space-md" id="contact-form" onsubmit="handleContactSubmit(event)">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Send a Message</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">This form opens your email app with the message ready to send. It does not submit data to this website.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="form-name">YOUR NAME</label>
+<input autocomplete="name" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-1 focus:ring-error transition-all" id="form-name" name="name" placeholder="Jane Doe" required="" type="text">
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="form-email">YOUR EMAIL</label>
+<input autocomplete="email" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-1 focus:ring-error transition-all" id="form-email" name="email" placeholder="jane@example.com" required="" type="email">
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="form-type">PROJECT TYPE</label>
+<select class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-error transition-all" id="form-type" name="project-type">
+<option value="web-app">Custom Web Application</option>
+<option value="ecommerce">E-Commerce &amp; Product Showcase</option>
+<option value="booking">Booking / Reservation System</option>
+<option value="consulting">Frontend UI/UX Consultation</option>
+<option value="optimization">Performance Optimization</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="form-message">MESSAGE DETAILS</label>
+<textarea autocomplete="off" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:ring-1 focus:ring-error transition-all" id="form-message" name="message" placeholder="Tell me about your project scope, timeline, and goals..." required="" rows="4"></textarea>
+</div>
+<button class="w-full py-4 rounded-xl font-label-md text-label-md font-semibold bg-gradient-to-r from-error to-error-container text-on-error shadow-[0_0_20px_rgba(255,42,75,0.4)] hover:shadow-[0_0_28px_rgba(255,42,75,0.7)] hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer" id="submit-btn" type="submit">
+<span class="" id="submit-btn-text">Send Message</span>
+<span class="material-symbols-outlined text-[18px]" id="submit-btn-icon">send</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</div>
+<!-- =========================================================================
+       MODAL: CASE STUDY MODAL
+       ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="project-modal">
+<div class="relative w-full max-w-2xl rounded-2xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-[0_24px_50px_rgba(0,0,0,0.8)] border border-surface-container-high/60 max-h-[90vh] overflow-y-auto">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-error" id="modal-project-sub">Project Detail</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="modal-project-title">Case Study</h3>
+</div>
+<button aria-label="Close modal" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-error transition-colors cursor-pointer" onclick="closeProjectModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">layers</span>
+<span class="" id="modal-project-stack">React, Node.js, Express</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<p class="font-body-md text-body-md text-on-surface leading-relaxed" id="modal-project-desc">
+          Comprehensive project case study notes.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="p-3 bg-surface-container-low rounded-lg">
+<h4 class="font-label-sm text-label-sm text-error uppercase font-bold mb-1">Key Challenge</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modal-project-challenge">Balancing dense data display with intuitive mobile UX.</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<h4 class="font-label-sm text-label-sm text-primary uppercase font-bold mb-1">Engineering Solution</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="modal-project-solution">Implemented asynchronous state caches and modular web component architecture.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm hover:bg-surface-bright transition-all cursor-pointer" onclick="closeProjectModal()" type="button">Close</button>
+<a class="px-5 py-2.5 rounded-lg bg-error text-on-error font-label-sm text-label-sm font-semibold flex items-center gap-2 hover:brightness-110 transition-all" href="mailto:daryltautjo@gmail.com" id="modal-project-link">
+<span class="">Ask about this project</span>
+<span class="material-symbols-outlined text-[16px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+       MODAL: LIVE DEMO PREVIEW MODAL
+       ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="live-demo-modal">
+<div class="relative w-full max-w-3xl rounded-2xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-[0_24px_50px_rgba(0,0,0,0.8)] border border-surface-container-high/60 max-h-[90vh] overflow-y-auto">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-primary" id="demo-modal-sub">Live Interactive Sandbox</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="demo-modal-title">Project Preview</h3>
+</div>
+<button aria-label="Close demo modal" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-error transition-colors cursor-pointer" onclick="closeLiveDemoModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="w-full h-64 md:h-80 rounded-xl overflow-hidden bg-surface-container-lowest border border-surface-container-high relative group">
+<img alt="Project interactive live mock" class="w-full h-full object-cover" id="demo-modal-img" src="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-4">
+<span class="px-3 py-1 rounded bg-error/90 text-on-error text-label-sm font-semibold flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>Sandbox Mode Active</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      This preview instance displays active state models, pre-rendered components, and sample database records. You can explore full source repositories or request a staged walkthrough.
+    </p>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-4 py-2.5 rounded-lg bg-surface-container-highest text-on-surface font-label-sm text-label-sm hover:bg-surface-bright transition-all cursor-pointer" onclick="closeLiveDemoModal()" type="button">Close Preview</button>
+<button class="px-5 py-2.5 rounded-lg bg-error text-on-error font-label-sm text-label-sm font-semibold flex items-center gap-2 hover:brightness-110 transition-all cursor-pointer" onclick="closeLiveDemoModal(); scrollToContactAndFocus();" type="button">
+<span class="">Request Full Demo Access</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- =========================================================================
+       MODAL: SKILL DETAIL MODAL
+       ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="skill-modal">
+<div class="relative w-full max-w-md rounded-2xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-[0_24px_50px_rgba(0,0,0,0.8)] border border-surface-container-high/60">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-primary" id="modal-skill-role">Skill Domain</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="modal-skill-title">Skill Name</h3>
+</div>
+<button aria-label="Close skill modal" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-error transition-colors cursor-pointer" onclick="closeSkillModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container-lowest px-3 py-1.5 rounded-md">
+<span class="material-symbols-outlined text-[16px] text-error">timer</span>
+<span class="" id="modal-skill-exp">Experience</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant bg-surface-container-lowest px-3 py-1.5 rounded-md">
+<span class="material-symbols-outlined text-[16px] text-primary">analytics</span>
+<span class="" id="modal-skill-proficiency">90%</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="modal-skill-desc">
+        Details regarding practical utilization.
+      </p>
+<div class="p-3 bg-surface-container-low rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface uppercase font-bold block mb-1">Featured In:</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="modal-skill-projects">ToothSaver, School Athlete Monitoring</span>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container-highest font-label-sm text-label-sm font-semibold text-on-surface hover:bg-surface-bright transition-all cursor-pointer" onclick="closeSkillModal()" type="button">
+        Dismiss
+      </button>
+</div>
+</div>
+<!-- =========================================================================
+       MODAL: GENERAL INSIGHT / MILESTONES MODAL
+       ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-container-lowest/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300" id="insight-modal">
+<div class="relative w-full max-w-md rounded-2xl bg-surface-container p-space-lg flex flex-col gap-space-md shadow-[0_24px_50px_rgba(0,0,0,0.8)] border border-surface-container-high/60">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface" id="insight-modal-title">Milestone</h3>
+<button aria-label="Close insight modal" class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-error transition-colors cursor-pointer" onclick="closeInsightModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed" id="insight-modal-desc">
+        Insight details.
+      </p>
+<button class="w-full py-2.5 rounded-lg bg-error text-on-error font-label-sm text-label-sm font-semibold hover:brightness-110 transition-all cursor-pointer" onclick="closeInsightModal()" type="button">
+        Got it
+      </button>
+</div>
+</div>
+<!-- =========================================================================
+       TOAST NOTIFICATION COMPONENT
+       ========================================================================= -->
+<div aria-atomic="true" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-xl bg-surface-container-high/95 backdrop-blur-md text-on-surface font-body-sm text-body-sm shadow-[0_8px_24px_rgba(0,0,0,0.8)] border border-surface-container-highest flex items-center gap-2 transition-all duration-300 transform opacity-0 pointer-events-none translate-y-3" id="toast-notify" role="status">
+<span class="material-symbols-outlined text-error text-[20px]" id="toast-icon">check_circle</span>
+<span class="" id="toast-text">Notification</span>
+</div>
+</main>
+<footer class="w-full bg-surface-container-lowest pb-20 md:pb-12 border-t border-surface-container-high/40">
+<div class="w-full max-w-[1280px] mx-auto px-gutter-mobile lg:px-gutter py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex flex-col items-center md:items-start gap-space-xs">
+<a class="flex items-center gap-space-xs font-headline-sm text-headline-sm tracking-tight text-on-surface" href="#home" onclick="handleNavScroll(event, 'home')">
+<span class="font-medium">Daryl</span><span class="font-bold text-error drop-shadow-[0_0_12px_rgba(255,42,75,0.45)]">Tautjo</span>
+</a>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Executive creative portfolio &amp; interactive case studies.</p>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-right">
+Â© 2026 Daryl Tautjo. All rights reserved.
+</div>
+</div>
+</footer>
+<!-- =========================================================================
+     INLINE CLIENT INTERACTION CONTROLS
+     Typewriter, Modals, Skills Filtering, Scroll Controls & Form
+     ========================================================================= -->
+<script>
+  // 1. In-Page Smooth Scroll Handler with event.preventDefault() and element.scrollIntoView
+  function handleNavScroll(event, targetId) {
+    if (event) {
+      event.preventDefault();
+    }
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      pendingNavigationTarget = targetId;
+      window.clearTimeout(scrollSpyFallback);
+      targetElement.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+      scrollSpyFallback = window.setTimeout(() => {
+        if (pendingNavigationTarget) {
+          updateActiveNav(pendingNavigationTarget);
+          pendingNavigationTarget = null;
+        }
+      }, prefersReducedMotion ? 0 : 180);
+      // Update browser history hash without navigating away or reloading
+      if (history.pushState) {
+        history.pushState(null, null, '#' + targetId);
+      }
+      updateActiveNav(targetId);
+    }
+    // Close mobile drawer if open
+    const drawer = document.getElementById("mobile-drawer");
+    if (drawer && !drawer.classList.contains("hidden")) {
+      setMobileMenuOpen(false);
+      btnMobileMenu?.focus({ preventScroll: true });
+    }
+  }
+
+  // Active desktop & mobile nav link classes
+  function updateActiveNav(activeId) {
+    document.querySelectorAll("#desktop-nav .nav-link").forEach(link => {
+      const target = link.getAttribute("data-target") || link.getAttribute("href")?.replace("#", "");
+      if (target === activeId) {
+        link.className = "nav-link px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg";
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.className = "nav-link px-space-md py-space-xs font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors";
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    document.querySelectorAll("#mobile-drawer .mobile-nav-item").forEach(item => {
+      const target = item.getAttribute("href")?.replace("#", "");
+      if (target === activeId) {
+        item.className = "px-4 py-2.5 rounded-lg text-on-surface font-semibold bg-surface-container-low text-error transition-all mobile-nav-item";
+      } else {
+        item.className = "px-4 py-2.5 rounded-lg text-on-surface-variant hover:text-error hover:bg-surface-container-low transition-all mobile-nav-item";
+        item.removeAttribute("aria-current");
+      }
+      if (target === activeId) item.setAttribute("aria-current", "page");
+    });
+  }
+
+  // Mobile Menu Drawer Toggle
+  const btnMobileMenu = document.getElementById("btn-mobile-menu");
+  const mobileDrawer = document.getElementById("mobile-drawer");
+  function setMobileMenuOpen(isOpen) {
+    if (!btnMobileMenu || !mobileDrawer) return;
+    mobileDrawer.classList.toggle("hidden", !isOpen);
+    btnMobileMenu.setAttribute("aria-expanded", String(isOpen));
+    btnMobileMenu.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    const menuIcon = btnMobileMenu.querySelector(".material-symbols-outlined");
+    if (menuIcon) menuIcon.textContent = isOpen ? "close" : "menu";
+    if (isOpen) mobileDrawer.querySelector("a")?.focus();
+  }
+  if (btnMobileMenu && mobileDrawer) {
+    btnMobileMenu.addEventListener("click", () => {
+      setMobileMenuOpen(mobileDrawer.classList.contains("hidden"));
+    });
+  }
+
+  function scrollToContactAndFocus() {
+    handleNavScroll(null, "contact");
+    setTimeout(() => {
+      const input = document.getElementById("form-name");
+      if (input) input.focus();
+    }, prefersReducedMotion ? 0 : 600);
+  }
+
+  // Active nav tracking on scroll using IntersectionObserver / Scroll tracking
+  const navSectionIds = ["home", "about", "experience", "skills", "projects", "contact"];
+  let navUpdatePending = false;
+  let pendingNavigationTarget = null;
+  let scrollSpyFallback = 0;
+  window.addEventListener("scroll", () => {
+    if (pendingNavigationTarget) {
+      window.clearTimeout(scrollSpyFallback);
+      scrollSpyFallback = window.setTimeout(() => {
+        if (pendingNavigationTarget) {
+          updateActiveNav(pendingNavigationTarget);
+          pendingNavigationTarget = null;
+        }
+      }, 180);
+      return;
+    }
+    if (navUpdatePending) return;
+    navUpdatePending = true;
+    window.requestAnimationFrame(() => {
+      let current = navSectionIds[0];
+      const scrollPos = window.scrollY + 160;
+      navSectionIds.forEach(secId => {
+        const section = document.getElementById(secId);
+        if (section && section.offsetTop <= scrollPos) current = secId;
+      });
+      updateActiveNav(current);
+      navUpdatePending = false;
+    });
+  }, { passive: true });
+
+  window.addEventListener("scrollend", () => {
+    if (!pendingNavigationTarget) return;
+    window.clearTimeout(scrollSpyFallback);
+    updateActiveNav(pendingNavigationTarget);
+    pendingNavigationTarget = null;
+  }, { passive: true });
+
+  function cancelPendingNavigation() {
+    if (!pendingNavigationTarget) return;
+    pendingNavigationTarget = null;
+    window.clearTimeout(scrollSpyFallback);
+  }
+
+  window.addEventListener("wheel", cancelPendingNavigation, { passive: true });
+  window.addEventListener("touchstart", cancelPendingNavigation, { passive: true });
+  document.addEventListener("keydown", event => {
+    if (["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "].includes(event.key)) {
+      cancelPendingNavigation();
+    }
+    if (!(event.target instanceof Element)) return;
+    const control = event.target.closest('[role="button"][tabindex="0"]');
+    if (control && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      control.click();
+    }
+  });
+
+  // Profile modal action
+  function openProfileModal() {
+    openStatModal("Daryl Tautjo â€” Creative Developer", "Specializing in UI/UX systems, interactive frontend design, and scalable management platforms. Based in Lower Sanroque Bulacao C.C, available for freelance and technical contracts.");
+  }
+
+  // 2. Hero Dynamic Typewriter Effect cycling requested roles
+  const typewriterRoles = [
+    "WEB DEVELOPER",
+    "UI/UX ENTHUSIAST",
+    "FRONTEND SPECIALIST",
+    "CREATIVE CODER"
+  ];
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  const typewriterEl = document.getElementById("typewriter-text");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion && typewriterEl) {
+    typewriterEl.textContent = typewriterRoles[0];
+  }
+
+  function typeCycle() {
+    if (!typewriterEl) return;
+    const current = typewriterRoles[roleIdx];
+    
+    if (isDeleting) {
+      typewriterEl.textContent = current.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      typewriterEl.textContent = current.substring(0, charIdx + 1);
+      charIdx++;
+    }
+
+    let typeSpeed = isDeleting ? 45 : 95;
+
+    if (!isDeleting && charIdx === current.length) {
+      typeSpeed = 2200; // Pause on complete word
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % typewriterRoles.length;
+      typeSpeed = 400;
+    }
+
+    setTimeout(typeCycle, typeSpeed);
+  }
+  if (!prefersReducedMotion) setTimeout(typeCycle, 800);
+
+  // 3. Skills Category Filter (All, Frontend, Tools & DB)
+  const filterBtns = document.querySelectorAll(".skill-filter-btn");
+  const skillCards = document.querySelectorAll(".skill-card");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach(b => {
+        b.classList.remove("bg-surface-container-highest", "text-on-surface");
+        b.classList.add("text-on-surface-variant");
+        b.setAttribute("aria-pressed", "false");
+      });
+      btn.classList.add("bg-surface-container-highest", "text-on-surface");
+      btn.classList.remove("text-on-surface-variant");
+      btn.setAttribute("aria-pressed", "true");
+
+      const cat = btn.getAttribute("data-cat");
+      skillCards.forEach(card => {
+        if (cat === "all" || card.getAttribute("data-category") === cat) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  // 4. Modals (Project Case Studies, Skill Breakdown, Live Preview, Milestones)
+  const projectModal = document.getElementById("project-modal");
+  const skillModal = document.getElementById("skill-modal");
+  const liveDemoModal = document.getElementById("live-demo-modal");
+  const insightModal = document.getElementById("insight-modal");
+  const modalLabels = {
+    "project-modal": "modal-project-title",
+    "live-demo-modal": "demo-modal-title",
+    "skill-modal": "modal-skill-title",
+    "insight-modal": "insight-modal-title"
+  };
+  let activeModal = null;
+  let previouslyFocusedElement = null;
+  let previousBodyOverflow = "";
+
+  [projectModal, skillModal, liveDemoModal, insightModal].forEach(modal => {
+    if (!modal) return;
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("aria-labelledby", modalLabels[modal.id]);
+  });
+
+  function openAccessibleModal(modal) {
+    if (!modal) return;
+    previouslyFocusedElement = document.activeElement;
+    previousBodyOverflow = document.body.style.overflow;
+    activeModal = modal;
+    modal.classList.remove("opacity-0", "pointer-events-none");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    modal.querySelector("button:not(:disabled), a[href], [tabindex]:not([tabindex='-1'])")?.focus();
+  }
+
+  function closeAccessibleModal(modal) {
+    if (!modal) return;
+    modal.classList.add("opacity-0", "pointer-events-none");
+    modal.setAttribute("aria-hidden", "true");
+    if (activeModal !== modal) return;
+    activeModal = null;
+    document.body.style.overflow = previousBodyOverflow;
+    if (previouslyFocusedElement?.isConnected) previouslyFocusedElement.focus();
+  }
+
+  function openProjectModal(title, sub, stack, desc, challenge, solution, link) {
+    document.getElementById("modal-project-title").textContent = title;
+    document.getElementById("modal-project-sub").textContent = sub;
+    document.getElementById("modal-project-stack").textContent = stack;
+    document.getElementById("modal-project-desc").textContent = desc;
+    if (challenge && document.getElementById("modal-project-challenge")) {
+      document.getElementById("modal-project-challenge").textContent = challenge;
+    }
+    if (solution && document.getElementById("modal-project-solution")) {
+      document.getElementById("modal-project-solution").textContent = solution;
+    }
+    const projectLink = document.getElementById("modal-project-link");
+    const projectUrl = link ? new URL(link, window.location.href) : null;
+    projectLink.href = projectUrl && projectUrl.hostname !== "github.com"
+      ? link
+      : "mailto:daryltautjo@gmail.com?subject=" + encodeURIComponent(title + " project inquiry");
+    openAccessibleModal(projectModal);
+  }
+
+  function closeProjectModal() {
+    closeAccessibleModal(projectModal);
+  }
+
+  function openLiveDemoModal(title, sub, imgSrc) {
+    document.getElementById("demo-modal-title").textContent = title;
+    document.getElementById("demo-modal-sub").textContent = sub;
+    if (imgSrc) {
+      const previewImage = document.getElementById("demo-modal-img");
+      previewImage.src = imgSrc;
+      previewImage.alt = title + " preview";
+    }
+    openAccessibleModal(liveDemoModal);
+  }
+
+  function closeLiveDemoModal() {
+    closeAccessibleModal(liveDemoModal);
+  }
+
+  function openSkillModal(title, role, exp, desc, proficiency, projects) {
+    document.getElementById("modal-skill-title").textContent = title;
+    document.getElementById("modal-skill-role").textContent = role;
+    document.getElementById("modal-skill-exp").textContent = exp;
+    document.getElementById("modal-skill-desc").textContent = desc;
+    if (document.getElementById("modal-skill-proficiency")) {
+      document.getElementById("modal-skill-proficiency").textContent = proficiency || "85%";
+    }
+    if (document.getElementById("modal-skill-projects")) {
+      document.getElementById("modal-skill-projects").textContent = projects || "Various Projects";
+    }
+    openAccessibleModal(skillModal);
+  }
+
+  function closeSkillModal() {
+    closeAccessibleModal(skillModal);
+  }
+
+  function openStatModal(title, desc) {
+    document.getElementById("insight-modal-title").textContent = title;
+    document.getElementById("insight-modal-desc").textContent = desc;
+    openAccessibleModal(insightModal);
+  }
+
+  function openMilestoneModal(title, desc) {
+    openStatModal(title, desc);
+  }
+
+  function closeInsightModal() {
+    closeAccessibleModal(insightModal);
+  }
+
+  // Close modals when clicking backdrop or pressing ESC
+  [projectModal, skillModal, liveDemoModal, insightModal].forEach(modal => {
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeAccessibleModal(modal);
+        }
+      });
+    }
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && activeModal) {
+      closeAccessibleModal(activeModal);
+    } else if (e.key === "Escape" && mobileDrawer && !mobileDrawer.classList.contains("hidden")) {
+      setMobileMenuOpen(false);
+      btnMobileMenu?.focus();
+    }
+    if (e.key === "Tab" && activeModal) {
+      const focusable = Array.from(activeModal.querySelectorAll(
+        "button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex='-1'])"
+      )).filter(element => element.getClientRects().length > 0);
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first || !last) {
+        e.preventDefault();
+      } else if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+
+  // 5. Capability Inquire Handler
+  function inquireService(type) {
+    const select = document.getElementById("form-type");
+    if (select) {
+      select.value = type;
+    }
+    scrollToContactAndFocus();
+    showToast("Service pre-selected in contact form!");
+  }
+
+  // 6. Copy Email
+  function copyEmailToClipboard() {
+    const email = "daryltautjo@gmail.com";
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(() => {
+        showToast("Email copied to clipboard!");
+      }).catch(() => {
+        promptCopy(email);
+      });
+    } else {
+      promptCopy(email);
+    }
+  }
+
+  function promptCopy(text) {
+    const textarea = document.createElement("textarea");
+    const previouslyFocused = document.activeElement;
+    textarea.value = text;
+    textarea.setAttribute("aria-hidden", "true");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    let copied = false;
+    try {
+      copied = document.execCommand("copy");
+    } catch {
+      copied = false;
+    }
+    document.body.removeChild(textarea);
+    if (previouslyFocused?.isConnected) previouslyFocused.focus();
+    showToast(copied ? "Email copied to clipboard!" : "Copy unavailable. Email: " + text);
+  }
+
+  // Toast Notification
+  function showToast(msg) {
+    const toast = document.getElementById("toast-notify");
+    const toastText = document.getElementById("toast-text");
+    if (!toast || !toastText) return;
+    toastText.textContent = msg;
+    toast.classList.remove("opacity-0", "pointer-events-none", "translate-y-3");
+    setTimeout(() => {
+      toast.classList.add("opacity-0", "pointer-events-none", "translate-y-3");
+    }, 2800);
+  }
+
+  // 7. Contact Form Submission with validation and feedback
+  function handleContactSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById("form-name").value.trim();
+    const email = document.getElementById("form-email").value.trim();
+    const projectType = document.getElementById("form-type");
+    const message = document.getElementById("form-message").value.trim();
+
+    if (!name || !email || !message) {
+      showToast("Please fill in all required fields!");
+      return;
+    }
+
+    const subject = "Portfolio inquiry: " + projectType.options[projectType.selectedIndex].text;
+    const body = [
+      "Name: " + name,
+      "Email: " + email,
+      "Project type: " + projectType.options[projectType.selectedIndex].text,
+      "",
+      message
+    ].join("\n");
+    window.location.href = "mailto:daryltautjo@gmail.com?subject=" +
+      encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    showToast("Your email app is opening with this message. Review and send it there.");
+  }
+
+  // 8. Interactive 3D Card Hover Tilt on Hero Portrait
+  const heroCard = document.getElementById("hero-portrait-card");
+  if (heroCard && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion) {
+    heroCard.addEventListener("pointermove", (e) => {
+      const rect = heroCard.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      heroCard.style.transform = `perspective(800px) rotateY(${x / 14}deg) rotateX(${-y / 14}deg)`;
+    });
+    heroCard.addEventListener("pointerleave", () => {
+      heroCard.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg)";
+    });
+  }
+
+  // 9. Three.js Background 3D Scene Initialization
+  (function initThreeScene() {
+    const container = document.getElementById("hero-threejs-canvas");
+    if (!container) return;
+    if (prefersReducedMotion) {
+      container.replaceChildren();
+      return;
+    }
+    if (typeof THREE === "undefined") return;
+
+    container.innerHTML = "";
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, container.clientWidth / (container.clientHeight || 600), 0.1, 1000);
+    camera.position.z = 24;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setClearColor(0x000000, 0);
+    renderer.domElement.style.position = "absolute";
+    renderer.domElement.style.top = "0";
+    renderer.domElement.style.left = "0";
+    renderer.domElement.style.width = "100%";
+    renderer.domElement.style.height = "100%";
+    renderer.domElement.style.pointerEvents = "none";
+    container.appendChild(renderer.domElement);
+
+    const icosaGeom = new THREE.IcosahedronGeometry(7.2, 1);
+    const wireIcosaMat = new THREE.MeshBasicMaterial({
+      color: 0xff2a4b,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.35
+    });
+    const icosaMesh = new THREE.Mesh(icosaGeom, wireIcosaMat);
+    icosaMesh.position.set(-6, 2, -4);
+    scene.add(icosaMesh);
+
+    const innerIcosaGeom = new THREE.IcosahedronGeometry(4.5, 0);
+    const innerIcosaMat = new THREE.MeshBasicMaterial({
+      color: 0xff6b81,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.45
+    });
+    const innerIcosaMesh = new THREE.Mesh(innerIcosaGeom, innerIcosaMat);
+    icosaMesh.add(innerIcosaMesh);
+
+    const octaGeom = new THREE.OctahedronGeometry(4.4, 1);
+    const octaMat = new THREE.MeshBasicMaterial({
+      color: 0xd4af37,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.28
+    });
+    const octaMesh = new THREE.Mesh(octaGeom, octaMat);
+    octaMesh.position.set(9.5, -4.5, -5);
+    scene.add(octaMesh);
+
+    const particleCount = window.innerWidth < 640 ? 80 : 260;
+    const particleGeometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const velocities = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 60;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 35;
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.008,
+        y: (Math.random() - 0.5) * 0.008 + 0.006,
+        z: (Math.random() - 0.5) * 0.008
+      });
+    }
+
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleMaterial = new THREE.PointsMaterial({
+      color: 0xff4d6d,
+      size: 0.24,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending
+    });
+    const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
+    scene.add(particleSystem);
+
+    function onResize() {
+      if (!container) return;
+      const width = container.clientWidth || window.innerWidth;
+      const height = container.clientHeight || (window.innerHeight - 64) || 600;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+    window.addEventListener("resize", onResize);
+    onResize();
+
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    let clock = new THREE.Clock();
+    let animationFrameId = 0;
+    function renderLoop() {
+      if (document.hidden) return;
+      animationFrameId = requestAnimationFrame(renderLoop);
+      const delta = clock.getDelta();
+      const elapsedTime = clock.getElapsedTime();
+
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      icosaMesh.rotation.x += (0.18 + mouseX * 0.2) * delta;
+      icosaMesh.rotation.y += (0.24 + mouseY * 0.2) * delta;
+      innerIcosaMesh.rotation.x -= 0.3 * delta;
+      innerIcosaMesh.rotation.y -= 0.35 * delta;
+
+      octaMesh.rotation.x -= (0.22 - mouseX * 0.15) * delta;
+      octaMesh.rotation.z += 0.28 * delta;
+      octaMesh.position.y = -4.5 + Math.sin(elapsedTime * 0.9) * 0.7;
+
+      camera.position.x = mouseX * 2.8;
+      camera.position.y = -mouseY * 2.8;
+      camera.lookAt(0, 0, 0);
+
+      const pos = particleGeometry.attributes.position.array;
+      for (let i = 0; i < particleCount; i++) {
+        pos[i * 3 + 1] += velocities[i].y;
+        pos[i * 3] += velocities[i].x + (mouseX * 0.015);
+        pos[i * 3 + 2] += velocities[i].z;
+
+        if (pos[i * 3 + 1] > 20) pos[i * 3 + 1] = -20;
+        if (pos[i * 3] > 30) pos[i * 3] = -30;
+        if (pos[i * 3] < -30) pos[i * 3] = 30;
+      }
+      particleGeometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+    }
+    renderLoop();
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+      } else {
+        clock.start();
+        renderLoop();
+      }
+    });
+  })();
+</script>
+
+
+</body></html>
